@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - Restu Jaya Sentosa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="overlay" class="overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="brand">
+      <img src="Restu Sentosa.jpg" alt="Logo" class="brand-logo">
+      <div class="brand-text">
+        <h2 class="brand-title">Restu Jaya</h2>
+        <p class="tag">Solusi Bisnis Anda</p>
+      </div>
+    </div>
+
+   <nav class="menu" aria-label="Main menu">
+  <a href="index.html" class="menu-item">
+    <span class="icon">🏠</span><span class="label">Dashboard</span>
+  </a>
+  <a href="service.html" class="menu-item">
+    <span class="icon">🛠</span><span class="label">Service</span>
+  </a>
+  <a href="perawatan.html" class="menu-item">
+    <span class="icon">📅</span><span class="label">Perawatan</span>
+  </a>
+  <a href="laporan.html" class="menu-item">
+    <span class="icon">📑</span><span class="label">Laporan</span>
+  </a>
+  <a href="pengaturan.html" class="menu-item">
+    <span class="icon">⚙</span><span class="label">Pengaturan</span>
+  </a>
+  <a href="product.html" class="menu-item active">
+    <span class="icon">📦</span><span class="label">Produk</span>
+  </a>
+</nav>
+
+
+    
+  </aside>
+
+  <!-- MAIN -->
+  <div id="main" class="main">
+    <header class="topbar">
+      <button id="btnBurger" class="burger" aria-label="Toggle menu">
+        <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+      </button>
+
+      <div class="top-right">
+        <h1>Dashboard</h1>
+        <div class="top-actions">
+          <button class="btn-ghost">Create Job</button>
+          <button class="avatar">RJ</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="page">
+      <!-- KPI row -->
+      <div class="kpi-row">
+        <div class="kpi kpi-gradient">
+          <div class="kpi-left">
+            <div class="kpi-title">Total Activity</div>
+            <div class="kpi-percent">64%</div>
+            <div class="kpi-bar"><span style="width:64%"></span></div>
+          </div>
+          <div class="kpi-icon">📊</div>
+        </div>
+
+        <div class="kpi card-soft">
+          <div class="kpi-icon large">✔️</div>
+          <div class="kpi-right">
+            <div class="kpi-number">40</div>
+            <div class="kpi-label">Jobs Completed</div>
+          </div>
+        </div>
+
+        <div class="kpi card-soft">
+          <div class="kpi-icon large">🛠</div>
+          <div class="kpi-right">
+            <div class="kpi-number">10</div>
+            <div class="kpi-label">Jobs In Progress</div>
+          </div>
+        </div>
+
+        <div class="kpi card-soft">
+          <div class="kpi-icon large">⏳</div>
+          <div class="kpi-right">
+            <div class="kpi-number">4</div>
+            <div class="kpi-label">Awaiting Approval</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service grid title -->
+      <div class="section-header">
+        <h2>Service Categories</h2>
+        <p class="muted">Popular categories and quick actions</p>
+      </div>
+
+      <!-- service grid (banyak tile seperti permintaan) -->
+      <div class="service-grid long">
+        <!-- repeatable tile -->
+        <div class="service-card">
+          <div class="svc-top"><div class="svc-ico">🔌</div><div class="svc-num">4</div></div>
+          <div class="svc-label">Electrician</div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-top"><div class="svc-ico">🖨️</div><div class="svc-num">4</div></div>
+          <div class="svc-label">Cartridge</div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-top"><div class="svc-ico">🚰</div><div class="svc-num">4</div></div>
+          <div class="svc-label">Plumber</div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-top"><div class="svc-ico">🧰</div><div class="svc-num">4</div></div>
+          <div class="svc-label">Handyman</div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-top"><div class="svc-ico">🧹</div><div class="svc-num">4</div></div>
+          <div class="svc-label">Cleaner</div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-top"><div class="svc-ico">📷</div><div class="svc-num">4</div></div>
+          <div class="svc-label">CCTV</div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-top"><div class="svc-ico">🚗</div><div class="svc-num">4</div></div>
+          <div class="svc-label">Mobile Service</div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-top"><div class="svc-ico">🛁</div><div class="svc-num">4</div></div>
+          <div class="svc-label">Bathroom Fitter</div>
+        </div>
+
+        <!-- duplicate more tiles to make the page long -->
+        <div class="service-card"><div class="svc-top"><div class="svc-ico">🔧</div><div class="svc-num">4</div></div><div class="svc-label">Carpenter</div></div>
+        <div class="service-card"><div class="svc-top"><div class="svc-ico">🔒</div><div class="svc-num">4</div></div><div class="svc-label">Locksmith</div></div>
+        <div class="service-card"><div class="svc-top"><div class="svc-ico">🏗️</div><div class="svc-num">4</div></div><div class="svc-label">Builder</div></div>
+        <div class="service-card"><div class="svc-top"><div class="svc-ico">🌿</div><div class="svc-num">4</div></div><div class="svc-label">Gardener</div></div>
+        <div class="service-card"><div class="svc-top"><div class="svc-ico">📦</div><div class="svc-num">4</div></div><div class="svc-label">White Goods</div></div>
+        <div class="service-card"><div class="svc-top"><div class="svc-ico">🧾</div><div class="svc-num">4</div></div><div class="svc-label">Removals</div></div>
+        <div class="service-card"><div class="svc-top"><div class="svc-ico">🧾</div><div class="svc-num">4</div></div><div class="svc-label">Plastener</div></div>
+      </div>
+
+    </section>
+  </div>
+
+  <script src="toggle.js"></script>
+</body>
+</html>

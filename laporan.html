@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Laporan - Restu Jaya Sentosa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="overlay" class="overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="brand">
+      <img src="Restu Sentosa.jpg" alt="Logo" class="brand-logo">
+      <div class="brand-text">
+        <h2 class="brand-title">Restu Jaya</h2>
+        <p class="tag">Solusi Bisnis Anda</p>
+      </div>
+    </div>
+
+    <nav class="menu" aria-label="Main menu">
+      <a href="index.html" class="menu-item">
+        <span class="icon">🏠</span><span class="label">Dashboard</span>
+      </a>
+      <a href="service.html" class="menu-item">
+        <span class="icon">🛠</span><span class="label">Service</span>
+      </a>
+      <a href="perawatan.html" class="menu-item">
+        <span class="icon">📅</span><span class="label">Perawatan</span>
+      </a>
+      <a href="laporan.html" class="menu-item active">
+        <span class="icon">📑</span><span class="label">Laporan</span>
+      </a>
+      <a href="product.html" class="menu-item">
+        <span class="icon">📦</span><span class="label">Produk</span>
+      </a>
+      <a href="pengaturan.html" class="menu-item">
+        <span class="icon">⚙</span><span class="label">Pengaturan</span>
+      </a>
+    </nav>
+
+    <footer class="sidebar-footer">© 2025 Restu Jaya Sentosa</footer>
+  </aside>
+
+  <!-- MAIN -->
+  <div id="main" class="main">
+    <header class="topbar">
+      <button id="btnBurger" class="burger" aria-label="Toggle menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+      <h1>Laporan</h1>
+    </header>
+
+    <section class="page">
+      <div class="section-header">
+        <h2>Laporan Bulanan</h2>
+        <p class="muted">Unduh laporan aktivitas service & perawatan</p>
+      </div>
+
+      <div class="card-modern">
+        <table class="table table-modern">
+          <thead>
+            <tr>
+              <th>Bulan</th>
+              <th>Total Service</th>
+              <th>Total Perawatan</th>
+              <th>Biaya</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Januari</td><td>25</td><td>12</td><td>Rp 15.000.000</td>
+            </tr>
+            <tr>
+              <td>Februari</td><td>22</td><td>10</td><td>Rp 13.500.000</td>
+            </tr>
+            <tr>
+              <td>Maret</td><td>28</td><td>14</td><td>Rp 17.200.000</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:20px; display:flex; gap:10px">
+          <button class="btn-gradient">⬇ Export CSV</button>
+          <button class="btn-gradient" style="background:linear-gradient(135deg,#ff8b5d,#ffca7a)">⬇ Export PDF</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="toggle.js"></script>
+</body>
+</html>

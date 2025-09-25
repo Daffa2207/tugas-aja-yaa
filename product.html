@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Produk - Restu Jaya Sentosa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- Filter & Toolbar --- */
+    .product-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .product-filters input,
+    .product-filters select,
+    .product-filters button {
+      padding: 10px 14px;
+      border: 1px solid #e6e9ef;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      min-width: 160px;
+    }
+    .product-filters button {
+      background: linear-gradient(135deg, #39a0ff, #7ee787);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .product-filters button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    /* --- Product Card --- */
+    .product-card {
+      background: linear-gradient(180deg, #fdfdfd, #f7fbff);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 10px 24px rgba(16,24,40,0.08);
+      text-align: center;
+      cursor: zoom-in;
+      transition: transform .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 38px rgba(16,24,40,0.15);
+      background: linear-gradient(180deg, #ffffff, #eef9ff);
+    }
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .p-name {
+      font-weight: 700;
+      color: #0f1724;
+      font-size: 1rem;
+    }
+    .p-price {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1d4ed8;
+    }
+    /* --- Stok Badge dengan warna dinamis --- */
+    .p-stock {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .p-stock.high {
+      background: linear-gradient(135deg, #34d399, #10b981);
+      color: #fff;
+    }
+    .p-stock.low {
+      background: linear-gradient(135deg, #f87171, #ef4444);
+      color: #fff;
+    }
+    .p-stock.medium {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="overlay" class="overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar" aria-label="Sidebar utama">
+    <div class="brand">
+      <img src="Restu Sentosa.jpg" alt="Logo" class="brand-logo">
+      <div class="brand-text">
+        <h2 class="brand-title">Restu Jaya</h2>
+        <p class="tag">Solusi Bisnis Anda</p>
+      </div>
+    </div>
+
+    <nav class="menu" aria-label="Main menu">
+      <a href="index.html" class="menu-item">
+        <span class="icon">🏠</span><span class="label">Dashboard</span>
+      </a>
+      <a href="service.html" class="menu-item">
+        <span class="icon">🛠</span><span class="label">Service</span>
+      </a>
+      <a href="perawatan.html" class="menu-item">
+        <span class="icon">📅</span><span class="label">Perawatan</span>
+      </a>
+      <a href="laporan.html" class="menu-item">
+        <span class="icon">📑</span><span class="label">Laporan</span>
+      </a>
+      <a href="product.html" class="menu-item active">
+        <span class="icon">📦</span><span class="label">Produk</span>
+      </a>
+      <a href="pengaturan.html" class="menu-item">
+        <span class="icon">⚙</span><span class="label">Pengaturan</span>
+      </a>
+    </nav>
+
+    <footer class="sidebar-footer">© 2025 Restu Jaya Sentosa</footer>
+  </aside>
+
+  <!-- MAIN -->
+  <div id="main" class="main">
+    <header class="topbar">
+      <button id="btnBurger" class="burger" aria-label="Toggle menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+      <h1>Produk</h1>
+    </header>
+
+    <section class="page">
+      <div class="section-header">
+        <h2>Daftar Produk</h2>
+        <p class="muted">Cari, filter, sortir, dan reset produk terbaru</p>
+      </div>
+
+      <!-- Filter, Search & Sort -->
+      <div class="product-filters">
+        <input type="text" id="searchInput" placeholder="🔍 Cari produk...">
+        <select id="stockFilter">
+          <option value="all">Semua Stok</option>
+          <option value="low">Stok Menipis (&lt; 10)</option>
+          <option value="high">Stok Banyak (≥ 10)</option>
+        </select>
+        <select id="sortPrice">
+          <option value="default">Urutkan Harga</option>
+          <option value="asc">Harga Terendah</option>
+          <option value="desc">Harga Tertinggi</option>
+        </select>
+        <button id="resetFilter">🔄 Reset</button>
+      </div>
+
+      <!-- Produk grid -->
+      <div class="product-grid" id="productGrid">
+        <div class="product-card" data-name="Produk 1" data-stock="12" data-price="1500000">
+          <span class="p-stock high">Stok 12</span>
+          <img src="Gambar1.jpg" alt="Produk 1" data-index="1">
+          <div class="p-name">Produk 1</div>
+          <div class="p-price">Rp 1.500.000</div>
+        </div>
+        <div class="product-card" data-name="Produk 2" data-stock="8" data-price="2000000">
+          <span class="p-stock low">Stok 8</span>
+          <img src="Gambar2.jpg" alt="Produk 2" data-index="2">
+          <div class="p-name">Produk 2</div>
+          <div class="p-price">Rp 2.000.000</div>
+        </div>
+        <div class="product-card" data-name="Produk 3" data-stock="20" data-price="1200000">
+          <span class="p-stock high">Stok 20</span>
+          <img src="Gambar3.jpg" alt="Produk 3" data-index="3">
+          <div class="p-name">Produk 3</div>
+          <div class="p-price">Rp 1.200.000</div>
+        </div>
+        <div class="product-card" data-name="Produk 4" data-stock="5" data-price="3000000">
+          <span class="p-stock low">Stok 5</span>
+          <img src="Gambar4.jpg" alt="Produk 4" data-index="4">
+          <div class="p-name">Produk 4</div>
+          <div class="p-price">Rp 3.000.000</div>
+        </div>
+        <div class="product-card" data-name="Produk 5" data-stock="10" data-price="900000">
+          <span class="p-stock medium">Stok 10</span>
+          <img src="Gambar5.jpg" alt="Produk 5" data-index="5">
+          <div class="p-name">Produk 5</div>
+          <div class="p-price">Rp 900.000</div>
+        </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+        <button class="lb-close" aria-label="Tutup">✕</button>
+        <button class="lb-prev" aria-label="Sebelumnya">‹</button>
+        <div class="lb-content">
+          <img id="lb-img" src="" alt="">
+        </div>
+        <button class="lb-next" aria-label="Berikutnya">›</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="toggle.js"></script>
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const stockFilter = document.getElementById('stockFilter');
+    const sortPrice = document.getElementById('sortPrice');
+    const resetBtn = document.getElementById('resetFilter');
+    const productGrid = document.getElementById('productGrid');
+
+    function filterAndSort() {
+      const searchValue = searchInput.value.toLowerCase();
+      const filterValue = stockFilter.value;
+      const sortValue = sortPrice.value;
+
+      let products = Array.from(productGrid.querySelectorAll('.product-card'));
+
+      // Filter
+      products.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const stock = parseInt(card.dataset.stock, 10);
+        let visible = true;
+
+        if (!name.includes(searchValue)) visible = false;
+        if (filterValue === 'low' && stock >= 10) visible = false;
+        if (filterValue === 'high' && stock < 10) visible = false;
+
+        card.style.display = visible ? 'flex' : 'none';
+      });
+
+      // Sort
+      if (sortValue !== 'default') {
+        let visibleProducts = products.filter(card => card.style.display !== 'none');
+        visibleProducts.sort((a, b) => {
+          const priceA = parseInt(a.dataset.price, 10);
+          const priceB = parseInt(b.dataset.price, 10);
+          return sortValue === 'asc' ? priceA - priceB : priceB - priceA;
+        });
+        visibleProducts.forEach(card => productGrid.appendChild(card));
+      }
+    }
+
+    // Reset filters
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      stockFilter.value = 'all';
+      sortPrice.value = 'default';
+      filterAndSort();
+    });
+
+    searchInput.addEventListener('input', filterAndSort);
+    stockFilter.addEventListener('change', filterAndSort);
+    sortPrice.addEventListener('change', filterAndSort);
+  </script>
+</body>
+</html>
